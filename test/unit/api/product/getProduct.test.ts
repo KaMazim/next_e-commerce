@@ -1,6 +1,6 @@
-import getProduct from '../../src/api/getProduct';
+import getProduct from '../../../../src/api/product/getProduct';
 
-import type { Product } from '../../src/api/getProduct';
+import type { Product } from '../../../../src/api/product/getProduct';
 
 describe('getProduct - API function', () => {
     it('should return null when passed 0', async () => {
