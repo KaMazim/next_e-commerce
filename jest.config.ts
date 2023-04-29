@@ -146,7 +146,7 @@ const config = {
     // The test environment that will be used for testing
     // testEnvironment: "jest-environment-node",
 
-    // Options that will be passed to the testEnvironment
+    // Options that will be given to the testEnvironment
     // testEnvironmentOptions: {},
 
     // Adds a location field to test results

@@ -3,7 +3,7 @@ import getUser from '../../../../src/api/user/getUser';
 import type { User } from '../../../../src/api/user/getUser';
 
 describe('getUser - API function', () => {
-    it('should return null when passed 0', async () => {
+    it('should return null when given 0', async () => {
         const expected = null;
 
         const actual = await getUser(0);
@@ -19,7 +19,7 @@ describe('getUser - API function', () => {
         expect(actual).toBe(expected);
     });
 
-    it('should return a User when passed an id', async () => {
+    it('should return a User when given an id', async () => {
         const expectedId = 1;
 
         const expected: User = {

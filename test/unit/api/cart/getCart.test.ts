@@ -2,7 +2,7 @@ import getCart from '../../../../src/api/cart/getCart';
 import type { Cart, CartProduct } from '../../../../src/api/cart/getCart';
 
 describe('getCart - API function', () => {
-    it('should return null when passed 0', async () => {
+    it('should return null when given 0', async () => {
         const expected = null;
 
         const actual = await getCart(0);
@@ -18,7 +18,7 @@ describe('getCart - API function', () => {
         expect(actual).toBe(expected);
     });
 
-    it('should return a Cart when passed an id', async () => {
+    it('should return a Cart when given an id', async () => {
         const expectedId = 1;
 
         const expected: Cart = {
