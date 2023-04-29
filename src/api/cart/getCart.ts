@@ -20,14 +20,14 @@ interface CartProductResponse {
     quantity: number;
 }
 
-interface CartResponse {
+export interface CartResponse {
     id: number;
     userId: number;
     date: string;
     products: CartProductResponse[];
 }
 
-const getCartProducts = async (
+export const getCartProducts = async (
     productResponses: CartProductResponse[]
 ): Promise<CartProduct[]> => {
     const productIds = productResponses.map(({ productId }) => productId);
