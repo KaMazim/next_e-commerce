@@ -1,11 +1,11 @@
-import api from '..';
+import { fakeStoreApi } from '..';
 
 import { getCartProducts } from './getCart';
 
 import type { Cart, CartResponse } from './getCart';
 
 const getAllCarts = async (): Promise<Cart[]> => {
-    const { data: responseCarts = [] } = await api.get<
+    const { data: responseCarts = [] } = await fakeStoreApi.get<
         CartResponse[] | undefined
     >(`carts`);
 

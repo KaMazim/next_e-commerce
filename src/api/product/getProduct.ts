@@ -1,4 +1,4 @@
-import api from '..';
+import { fakeStoreApi } from '..';
 
 interface Rating {
     rate: number;
@@ -16,7 +16,7 @@ export interface Product {
 }
 
 const getProduct = async (productId: number): Promise<Product | null> => {
-    const { data: product } = await api.get<Product | undefined>(
+    const { data: product } = await fakeStoreApi.get<Product | undefined>(
         `products/${productId}`
     );
 

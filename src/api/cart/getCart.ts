@@ -1,4 +1,4 @@
-import api from '..';
+import { fakeStoreApi } from '..';
 
 import getManyProducts from '../product/getManyProducts';
 
@@ -47,7 +47,7 @@ export const getCartProducts = async (
 };
 
 const getCart = async (cartId: number): Promise<Cart | null> => {
-    const { data: response } = await api.get<CartResponse | undefined>(
+    const { data: response } = await fakeStoreApi.get<CartResponse | undefined>(
         `carts/${cartId}`
     );
 

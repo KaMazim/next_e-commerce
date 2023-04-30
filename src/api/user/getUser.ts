@@ -1,4 +1,4 @@
-import api from '..';
+import { fakeStoreApi } from '..';
 
 interface UserAddress {
     city: string;
@@ -19,7 +19,9 @@ export interface User {
 }
 
 const getUser = async (userId: number): Promise<User | null> => {
-    const { data: user } = await api.get<User | undefined>(`users/${userId}`);
+    const { data: user } = await fakeStoreApi.get<User | undefined>(
+        `users/${userId}`
+    );
 
     return user?.id != null ? user : null;
 };

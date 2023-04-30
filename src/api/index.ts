@@ -1,8 +1,14 @@
 import axios from 'axios';
 
-const api = axios.create({
+import { Client } from '@googlemaps/google-maps-services-js';
+
+export const fakeStoreApi = axios.create({
     baseURL: 'https://fakestoreapi.com/',
     timeout: 2000
 });
 
-export default api;
+export const mapApi = new Client({
+    config: {
+        timeout: 2000
+    }
+});
