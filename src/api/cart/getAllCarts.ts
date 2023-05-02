@@ -1,25 +1,15 @@
 import { fakeStoreApi } from '..';
 
-import { getCartProducts } from './getCart';
+import { getManyCartsFromResponse } from './getCart';
 
 import type { Cart, CartResponse } from './getCart';
 
 const getAllCarts = async (): Promise<Cart[]> => {
-    const { data: responseCarts = [] } = await fakeStoreApi.get<
+    const { data: cartResponses = [] } = await fakeStoreApi.get<
         CartResponse[] | undefined
     >(`carts`);
 
-    const carts: Cart[] = await Promise.all(
-        responseCarts.map(async (responseCart) => {
-            const products = await getCartProducts(responseCart.products);
-
-            return {
-                ...responseCart,
-                products,
-                date: new Date(responseCart.date)
-            };
-        })
-    );
+    const carts = await getManyCartsFromResponse(cartResponses);
 
     return carts;
 };

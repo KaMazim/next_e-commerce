@@ -46,23 +46,43 @@ export const getCartProducts = async (
     return cartProducts;
 };
 
-const getCart = async (cartId: number): Promise<Cart | null> => {
-    const { data: response } = await fakeStoreApi.get<CartResponse | undefined>(
-        `carts/${cartId}`
+export const getCartFromResponse = async (
+    cartResponse: CartResponse
+): Promise<Cart> => {
+    const { id, userId, date } = cartResponse;
+
+    const cartProducts = await getCartProducts(cartResponse.products);
+
+    const cart: Cart = {
+        id,
+        userId,
+        date: new Date(date),
+        products: cartProducts
+    };
+
+    return cart;
+};
+
+export const getManyCartsFromResponse = async (
+    cartResponses: CartResponse[]
+): Promise<Cart[]> => {
+    const carts: Cart[] = await Promise.all(
+        cartResponses.map(async (cartResponse) => {
+            const cart = await getCartFromResponse(cartResponse);
+            return cart;
+        })
     );
 
-    if (response?.id != null) {
-        const { id, userId, date } = response;
+    return carts;
+};
 
-        const cartProducts = await getCartProducts(response.products);
+const getCart = async (cartId: number): Promise<Cart | null> => {
+    const { data: cartResponse } = await fakeStoreApi.get<
+        CartResponse | undefined
+    >(`carts/${cartId}`);
 
-        const cart: Cart = {
-            id,
-            userId,
-            date: new Date(date),
-            products: cartProducts
-        };
-
+    if (cartResponse?.id != null) {
+        const cart = await getCartFromResponse(cartResponse);
         return cart;
     }
 
