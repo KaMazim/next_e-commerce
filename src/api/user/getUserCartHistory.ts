@@ -1,9 +1,10 @@
 import getUser from './getUser';
+
 import type { User } from './getUser';
 
 import type { Cart } from '../cart/getCart';
 
-import getAllCarts from '../cart/getAllCarts';
+import getUserCarts from '../cart/getUserCarts';
 
 export interface UserCartHistory extends Pick<User, 'id' | 'email' | 'name'> {
     carts: Cart[];
@@ -17,14 +18,13 @@ const getUserCartHistory = async (
     if (user != null) {
         const { id, email, name } = user;
 
-        const carts = await getAllCarts();
-        const userCarts = carts.filter((cart) => cart.userId === id);
+        const carts = await getUserCarts(id);
 
         return {
             id,
             email,
             name,
-            carts: userCarts
+            carts
         };
     } else return null;
 };
