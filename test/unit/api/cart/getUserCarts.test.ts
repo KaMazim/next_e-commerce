@@ -1,6 +1,6 @@
-import getUserCarts from '../../../../src/api/cart/getUserCarts';
+import getUserCarts from '@/api/cart/getUserCarts';
 
-import type { Cart, CartProduct } from '../../../../src/api/cart/getCart';
+import type { Cart, CartProduct } from '@/api/cart/getCart';
 
 describe('getUserCarts - API function', () => {
     it('should return an empty array when given an invalid UserId', async () => {

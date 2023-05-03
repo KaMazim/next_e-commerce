@@ -1,6 +1,6 @@
-import getManyCarts from '../../../../src/api/cart/getManyCarts';
+import getManyCarts from '@/api/cart/getManyCarts';
 
-import type { Cart, CartProduct } from '../../../../src/api/cart/getCart';
+import type { Cart, CartProduct } from '@/api/cart/getCart';
 
 describe('getManyCarts - API function', () => {
     it('should return an empty array when given an empty array', async () => {

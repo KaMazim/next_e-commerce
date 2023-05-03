@@ -1,8 +1,8 @@
-import getUserCartHistory from '../../../../src/api/user/getUserCartHistory';
+import getUserCartHistory from '@/api/user/getUserCartHistory';
 
-import type { UserCartHistory } from '../../../../src/api/user/getUserCartHistory';
+import type { UserCartHistory } from '@/api/user/getUserCartHistory';
 
-import type { Cart, CartProduct } from '../../../../src/api/cart/getCart';
+import type { Cart, CartProduct } from '@/api/cart/getCart';
 
 describe('getUserCartHistory - API function', () => {
     it('should return null when given 0', async () => {

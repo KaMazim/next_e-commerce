@@ -1,10 +1,10 @@
 import MockAdapter from 'axios-mock-adapter';
 
-import { baseURL, fakeStoreApi } from '../../../../src/api';
+import { baseURL, fakeStoreApi } from '@/api';
 
-import getAllUsers from '../../../../src/api/user/getAllUsers';
+import getAllUsers from '@/api/user/getAllUsers';
 
-import type { User } from '../../../../src/api/user/getUser';
+import type { User } from '@/api/user/getUser';
 
 const currentUrl = 'users';
 

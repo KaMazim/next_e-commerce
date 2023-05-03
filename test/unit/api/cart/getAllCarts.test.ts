@@ -1,6 +1,6 @@
-import getAllCarts from '../../../../src/api/cart/getAllCarts';
+import getAllCarts from '@/api/cart/getAllCarts';
 
-import type { Cart, CartProduct } from '../../../../src/api/cart/getCart';
+import type { Cart, CartProduct } from '@/api/cart/getCart';
 
 describe('getAllCarts - API function', () => {
     it('should return an array of Carts', async () => {

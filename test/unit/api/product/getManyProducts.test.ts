@@ -1,6 +1,6 @@
-import getManyProducts from '../../../../src/api/product/getManyProducts';
+import getManyProducts from '@/api/product/getManyProducts';
 
-import type { Product } from '../../../../src/api/product/getProduct';
+import type { Product } from '@/api/product/getProduct';
 
 describe('getManyProducts - API function', () => {
     it('should return an empty array when given an empty array', async () => {

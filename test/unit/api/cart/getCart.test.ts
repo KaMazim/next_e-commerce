@@ -1,5 +1,6 @@
-import getCart from '../../../../src/api/cart/getCart';
-import type { Cart, CartProduct } from '../../../../src/api/cart/getCart';
+import getCart from '@/api/cart/getCart';
+
+import type { Cart, CartProduct } from '@/api/cart/getCart';
 
 describe('getCart - API function', () => {
     it('should return null when given 0', async () => {

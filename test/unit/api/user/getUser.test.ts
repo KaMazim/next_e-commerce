@@ -1,10 +1,10 @@
 import MockAdapter from 'axios-mock-adapter';
 
-import { baseURL, fakeStoreApi } from '../../../../src/api';
+import { baseURL, fakeStoreApi } from '@/api';
 
-import getUser from '../../../../src/api/user/getUser';
+import getUser from '@/api/user/getUser';
 
-import type { User } from '../../../../src/api/user/getUser';
+import type { User } from '@/api/user/getUser';
 
 describe('getUser - API function', () => {
     let mock: MockAdapter;
