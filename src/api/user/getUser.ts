@@ -19,11 +19,15 @@ export interface User {
 }
 
 const getUser = async (userId: number): Promise<User | null> => {
-    const { data: user } = await fakeStoreApi.get<User | undefined>(
-        `users/${userId}`
-    );
+    try {
+        const { data: user } = await fakeStoreApi.get<User | undefined>(
+            `users/${userId}`
+        );
 
-    return user?.id != null ? user : null;
+        return user?.id != null ? user : null;
+    } catch (error) {
+        return null;
+    }
 };
 
 export default getUser;
