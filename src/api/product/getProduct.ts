@@ -16,11 +16,15 @@ export interface Product {
 }
 
 const getProduct = async (productId: number): Promise<Product | null> => {
-    const { data: product } = await fakeStoreApi.get<Product | undefined>(
-        `products/${productId}`
-    );
+    try {
+        const { data: product } = await fakeStoreApi.get<Product | undefined>(
+            `products/${productId}`
+        );
 
-    return product?.id != null ? product : null;
+        return product?.id != null ? product : null;
+    } catch (error) {
+        return null;
+    }
 };
 
 export default getProduct;
