@@ -104,28 +104,4 @@ describe('getManyProducts - API function', () => {
 
         expect(mock.history.get[0].baseURL).toEqual(baseURL);
     });
-
-    it('should return an array of Products with length equal to the amount of Products successfully fetched', async () => {
-        for (const productMock of productsMock) {
-            mock.onGet(baseURL + `products/${productMock.id}`).reply(
-                200,
-                productMock
-            );
-        }
-
-        mock.onGet(baseURL + `products/${1}`).reply(200, null);
-
-        const actual = await getManyProducts([...productMockIds, 1]);
-        const expectedLength = 2;
-
-        for (const actualProduct of actual) {
-            expect(actualProduct).toEqual(
-                expect.objectContaining<Product>(expected)
-            );
-        }
-
-        expect(actual.length).toBe(expectedLength);
-
-        expect(mock.history.get[0].baseURL).toEqual(baseURL);
-    });
 });

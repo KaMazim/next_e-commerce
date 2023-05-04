@@ -17,11 +17,11 @@ export interface Product {
 
 const getProduct = async (productId: number): Promise<Product | null> => {
     try {
-        const { data: product } = await fakeStoreApi.get<Product | undefined>(
+        const { data: product } = await fakeStoreApi.get<Product>(
             `products/${productId}`
         );
 
-        return product?.id != null ? product : null;
+        return product;
     } catch (error) {
         return null;
     }

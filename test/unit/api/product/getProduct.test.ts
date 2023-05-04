@@ -32,7 +32,7 @@ describe('getProduct - API function', () => {
         expect(actual).toBe(expected);
     });
 
-    it('should return null given ProductId does not exist', async () => {
+    it('should return null when given ProductId does not exist', async () => {
         const expectedId = Infinity;
 
         mock.onGet(baseURL + `products/${expectedId}`).reply(404);
