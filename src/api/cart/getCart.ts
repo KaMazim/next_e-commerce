@@ -15,7 +15,7 @@ export interface Cart {
     products: CartProduct[];
 }
 
-interface CartProductResponse {
+export interface CartProductResponse {
     productId: number;
     quantity: number;
 }
@@ -77,16 +77,17 @@ export const getManyCartsFromResponse = async (
 };
 
 const getCart = async (cartId: number): Promise<Cart | null> => {
-    const { data: cartResponse } = await fakeStoreApi.get<
-        CartResponse | undefined
-    >(`carts/${cartId}`);
+    try {
+        const { data: cartResponse } = await fakeStoreApi.get<CartResponse>(
+            `carts/${cartId}`
+        );
 
-    if (cartResponse?.id != null) {
         const cart = await getCartFromResponse(cartResponse);
-        return cart;
-    }
 
-    return null;
+        return cart;
+    } catch (error) {
+        return null;
+    }
 };
 
 export default getCart;
