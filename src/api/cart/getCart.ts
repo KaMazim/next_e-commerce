@@ -11,7 +11,7 @@ export interface CartProduct extends Product {
 export interface Cart {
     id: number;
     userId: number;
-    date: Date;
+    date: string;
     products: CartProduct[];
 }
 
@@ -56,7 +56,7 @@ export const getCartFromResponse = async (
     const cart: Cart = {
         id,
         userId,
-        date: new Date(date),
+        date,
         products: cartProducts
     };
 

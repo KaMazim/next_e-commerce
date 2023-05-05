@@ -35,7 +35,7 @@ describe('getUserCartHistory - API function', () => {
                 expect.objectContaining<Cart>({
                     id: expectedId,
                     userId: expect.any(Number),
-                    date: expect.any(Date),
+                    date: expect.any(String),
                     products: expect.arrayContaining<CartProduct>([
                         expect.objectContaining<CartProduct>({
                             id: expect.any(Number),
