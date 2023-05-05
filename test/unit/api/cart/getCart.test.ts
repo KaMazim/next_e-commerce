@@ -122,6 +122,7 @@ describe('getCart - API function', () => {
 
         const actual = await getCart(expectedId);
 
+        expect(mock.history.get[0].url).toEqual(`carts/${expectedId}`);
         expect(actual).toEqual(expect.objectContaining<Cart>(expected));
     });
 });
